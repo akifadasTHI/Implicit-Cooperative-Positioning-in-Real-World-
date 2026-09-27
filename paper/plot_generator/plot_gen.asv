@@ -1,0 +1,16 @@
+clc, clear, close all
+
+%% Bias-Free Position Plot
+load("C:\Users\akifa\OneDrive\Masaüstü\PhD\SPOKE9\Projects\1_C_ICP_FUSION\Codes\test1\nodes\ext_pose_data.mat")
+load("C:\Users\akifa\OneDrive\Masaüstü\PhD\SPOKE9\Projects\1_C_ICP_FUSION\Codes\test1\bias_free_b5g_pos.mat")
+
+light_orange = [255 153 51]./255;
+orange = [255 128 0]./255;
+
+figure
+plot(veh_pos_meas(:,1,2),veh_pos_meas(:,2,2),'r')
+hold on
+plot(positions_b5g_kf(1,:),positions_b5g_kf(2,:),'Color',orange)
+plot(veh_pos_gt(:,1,2),veh_pos_gt(:,2,2),'Color',orange)
+
+legend("SPP", "Bias-Fixed", "RTK-corrected")
